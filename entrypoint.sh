@@ -25,7 +25,7 @@ function incrementVersion {
 
 echo ${GITHUB_WORKSPACE}
 
-ls
+echo $(ls)
 
 cd ${GITHUB_WORKSPACE}
 
