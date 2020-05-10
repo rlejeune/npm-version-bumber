@@ -22,6 +22,8 @@ function incrementVersion {
   if [ $2 == 'major' ];
   then
     major=$((major+1))
+    minor=0
+    patch=0
   elif [ $2 == 'patch' ];
   then
     patch=$((patch+1))
