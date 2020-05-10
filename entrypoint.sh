@@ -27,9 +27,6 @@ cd ${GITHUB_WORKSPACE}
 
 git fetch --tags
 
-tag=$(git for-each-ref --sort=-v:refname --count=1 --format '%(refname)' refs/tags/[0-9]*.[0-9]*.[0-9]* refs/tags/v[0-9]*.[0-9]*.[0-9]* | cut -d / -f 3-)
-echo $tag
-
 # get latest tag
 gitTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 
