@@ -51,6 +51,7 @@ if [ $tag != $npmVersion ];
 then
   echo "NPM version has been bumped"
   bumpedVersion=$(npm version ${tag} --no-git-tag-version)
+  echo $(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
   echo "::set-output name=npmVersion::$bumpedVersion"
 else
   echo "NPM version is the same as next release"
