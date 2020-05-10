@@ -23,9 +23,9 @@ function incrementVersion {
   IFS=''
 }
 
-cd ${GITHUB_WORKSPACE}/
+echo ${GITHUB_WORKSPACE}
 
-ls
+cd /${GITHUB_WORKSPACE}
 
 # get latest tag
 gitTag=$(git describe --tags `git rev-list --tags --max-count=1`)
