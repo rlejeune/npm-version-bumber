@@ -23,6 +23,10 @@ function incrementVersion {
   IFS=''
 }
 
+echo {GITHUB_WORKSPACE}
+
+ls
+
 cd {GITHUB_WORKSPACE}
 
 # get latest tag
@@ -39,7 +43,6 @@ fi
 incrementVersion $tag
 
 # get the npm version
-# npmVersion=$(node -p -e "require('./package.json').version")
 npmVersion=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
 
 # print latest
