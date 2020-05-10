@@ -13,7 +13,6 @@ function incrementVersion {
     then
       minor="$i"
     else
-    then
       patch="$i"
     fi
 
@@ -27,7 +26,6 @@ function incrementVersion {
   then
     patch=$((patch+1))
   else
-  then
     minor=$((minor+1))
     patch=0
   fi
