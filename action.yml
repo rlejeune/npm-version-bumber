@@ -1,6 +1,6 @@
 # action.yml
 name: 'NPM version bumper'
-description: 'Will get the NPM version and compare it to the next minor git tag, if none then it'll starts at 0.1.0'
+description: 'Will get the NPM version and compare it to the next minor git tag'
 inputs:
   bumpType:
     description: 'major, minor or patch.'
