@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function incrementVersion {
   cmpt=0
 
