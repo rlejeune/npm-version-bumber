@@ -11,4 +11,4 @@ outputs:
     description: 'The new NPM version'
 runs:
   using: 'docker'
-  image: 'DockerFile'
+  image: 'Dockerfile'
