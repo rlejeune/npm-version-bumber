@@ -19,7 +19,7 @@ function incrementVersion {
     cmpt=$((cmpt+1))
   done
 
-  if [ $2 == 'major' ]; do
+  if [ $2 == 'major' ];
   then
     major=$((major+1))
   elif [ $2 == 'patch' ];
