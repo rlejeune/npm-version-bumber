@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function incrementVersion {
   cmpt=0
