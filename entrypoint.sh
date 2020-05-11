@@ -56,17 +56,13 @@ fi
 incrementVersion $tag
 
 # get the npm version
-npmVersion=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
+npmversion=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
 
-# print latest
-echo "Next release minor version: $tag"
-echo "NPM version: $npmVersion"
-
-if [ $tag != $npmVersion ];
+if [ $tag != $npmversion ];
 then
   # update npm version
   tag=$(npm version ${tag} --no-git-tag-version)
   echo "::set-output name=new_npm_version::$tag"
 else
-  echo "NPM version is the same as next release"
+  echo "::set-output name=new_npm_version::$npmversion"
 fi

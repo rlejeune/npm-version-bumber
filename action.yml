@@ -1,6 +1,6 @@
 # action.yml
 name: 'NPM version bumper'
-description: 'Will get the NPM version and compare it to the next minor git tag'
+description: 'Will get the NPM version and compare it to the next git tag'
 author: 'Robert Lejeune'
 runs:
   using: 'docker'
