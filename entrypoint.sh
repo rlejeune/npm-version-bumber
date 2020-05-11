@@ -66,7 +66,7 @@ echo "NPM version: $npmVersion"
 if [ $tag != $npmVersion ];
 then
   # echo "NPM version has been bumped"
-  # bumpedVersion=$(npm version ${tag} --no-git-tag-version)
+  tag=$(npm version ${tag} --no-git-tag-version)
 
   echo "::set-output name=npmVersion::$tag"
 else
