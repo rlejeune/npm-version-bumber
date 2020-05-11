@@ -57,6 +57,8 @@ else
   tag=${gitTag#"v"}
 fi
 
+echo $semvar
+
 incrementVersion $tag $semvar
 
 # get the npm version
