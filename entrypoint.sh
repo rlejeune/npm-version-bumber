@@ -19,13 +19,13 @@ function incrementVersion {
     cmpt=$((cmpt+1))
   done
 
-  if [ "$2" == 'major' ];
+  if [ $2 == 'major' ];
   then
     echo "major"
     major=$((major+1))
     minor=0
     patch=0
-  elif [ "$2" == 'patch' ];
+  elif [ $2 == 'patch' ];
   then
     echo "patch"
     patch=$((patch+1))
@@ -39,8 +39,7 @@ function incrementVersion {
   IFS=''
 }
 
-semvar=${BUMP_TYPE:-minor}
-echo $semvar
+echo ${BUMP_TYPE}
 
 cd ${GITHUB_WORKSPACE}
 
@@ -58,9 +57,7 @@ else
   tag=${gitTag#"v"}
 fi
 
-echo $semvar
-
-incrementVersion $tag $semvar
+incrementVersion $tag ${BUMP_TYPE}
 
 # get the npm version
 npmVersion=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
@@ -73,7 +70,6 @@ if [ $tag != $npmVersion ];
 then
   # update npm version
   tag=$(npm version ${tag} --no-git-tag-version)
-
   echo "::set-output name=npmVersion::$tag"
 else
   echo "NPM version is the same as next release"
