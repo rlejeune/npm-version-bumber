@@ -1,14 +1,10 @@
 # action.yml
 name: 'NPM version bumper'
 description: 'Will get the NPM version and compare it to the next minor git tag'
-inputs:
-  BUMP_TYPE:
-    description: 'major, minor or patch.'
-    required: false
-    default: 'minor'
-outputs:
-  npmVersion:
-    description: 'The new NPM version'
+author: 'Robert Lejeune'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+outputs:
+  new_npm_version:
+    description: 'The new NPM version'
