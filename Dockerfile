@@ -6,9 +6,9 @@ COPY entrypoint.sh /entrypoint.sh
 RUN apk update && apk add bash git curl
 
 # Get NodeJS install script and pass it to execute:
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
 
 # Install node
-RUN apt-get install nodejs
+RUN apt install nodejs
 
 ENTRYPOINT ["/entrypoint.sh"]
