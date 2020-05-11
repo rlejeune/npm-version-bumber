@@ -19,7 +19,7 @@ function incrementVersion {
     cmpt=$((cmpt+1))
   done
 
-  bump=${DESIRED_BUMP}
+  bump=${DESIRED_BUMP:-minor}
   if [ $bump == 'major' ];
   then
     major=$((major+1))
