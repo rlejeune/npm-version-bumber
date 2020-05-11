@@ -19,13 +19,13 @@ function incrementVersion {
     cmpt=$((cmpt+1))
   done
 
-  if [ $2 == 'major' ];
+  if [ "$2" == 'major' ];
   then
     echo "major"
     major=$((major+1))
     minor=0
     patch=0
-  elif [ $2 == 'patch' ];
+  elif [ "$2" == 'patch' ];
   then
     echo "patch"
     patch=$((patch+1))
