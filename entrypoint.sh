@@ -21,13 +21,16 @@ function incrementVersion {
 
   if [ $2 == 'major' ];
   then
+    echo "major"
     major=$((major+1))
     minor=0
     patch=0
   elif [ $2 == 'patch' ];
   then
+    echo "patch"
     patch=$((patch+1))
   else
+    echo "minor"
     minor=$((minor+1))
     patch=0
   fi
@@ -47,10 +50,10 @@ gitTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 
 if [ -z "$gitTag" ]
 then
-  # If we have no tag, then we start at 0.0.0
+  # no tag, start with 0.0.0
   tag=0.0.0
 else
-  # Else we remove the v in front of the existing tag
+  # remove the v in front of the existing tag
   tag=${gitTag#"v"}
 fi
 
@@ -65,7 +68,7 @@ echo "NPM version: $npmVersion"
 
 if [ $tag != $npmVersion ];
 then
-  # echo "NPM version has been bumped"
+  # update npm version
   tag=$(npm version ${tag} --no-git-tag-version)
 
   echo "::set-output name=npmVersion::$tag"
