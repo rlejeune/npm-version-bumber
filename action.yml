@@ -2,7 +2,7 @@
 name: 'NPM version bumper'
 description: 'Will get the NPM version and compare it to the next minor git tag'
 inputs:
-  bumpType:
+  BUMP_TYPE:
     description: 'major, minor or patch.'
     required: false
     default: 'minor'

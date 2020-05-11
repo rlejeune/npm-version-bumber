@@ -39,7 +39,7 @@ function incrementVersion {
   IFS=''
 }
 
-semvar=${BUMP:-minor}
+semvar=${BUMP_TYPE:-minor}
 echo $semvar
 
 cd ${GITHUB_WORKSPACE}
