@@ -20,19 +20,15 @@ function incrementVersion {
   done
 
   bump=${DESIRED_BUMP}
-
   if [ $bump == 'major' ];
   then
-    echo "major"
     major=$((major+1))
     minor=0
     patch=0
   elif [ $bump == 'patch' ];
   then
-    echo "patch"
     patch=$((patch+1))
   else
-    echo "minor"
     minor=$((minor+1))
     patch=0
   fi
@@ -40,8 +36,6 @@ function incrementVersion {
 
   IFS=''
 }
-
-echo ${DESIRED_BUMP}
 
 cd ${GITHUB_WORKSPACE}
 
