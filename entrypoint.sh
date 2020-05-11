@@ -45,11 +45,12 @@ git fetch --tags
 # get latest tag
 gitTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 
-# If we have not tag, then we start at 0.0.0
 if [ -z "$gitTag" ]
 then
+  # If we have no tag, then we start at 0.0.0
   tag=0.0.0
 else
+  # Else we remove the v in front of the existing tag
   tag=${gitTag#"v"}
 fi
 
